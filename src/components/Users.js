@@ -2,9 +2,9 @@ import React from 'react';
 import UserCard from './UserCard';
 
 const Users = ({ users, loading }) => {
-//   if (loading) {
-//     return <h2>Loading...</h2>;
-//   }
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
 
   return (
     <div>

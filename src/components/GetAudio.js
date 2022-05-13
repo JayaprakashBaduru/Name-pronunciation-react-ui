@@ -1,8 +1,5 @@
 import '../css/App.css';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Navigation from '../components/Navbar';
-import UserList from '../components/UserList';;
 
 function GetAudio() {
     const [audio, setAudio] = useState([]);

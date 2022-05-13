@@ -4,15 +4,18 @@ import './css/index.css';
 import App from './Apps/App1';
 import App2 from './Apps/App2';
 import reportWebVitals from './reportWebVitals';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import App3 from './Apps/App3';
+import { BrowserRouter, Switch, Routes, Route, Link } from 'react-router-dom';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App2 />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 

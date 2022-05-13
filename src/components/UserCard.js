@@ -3,6 +3,8 @@ import Avatar from '@mui/material/Avatar';
 import Button from 'react-bootstrap/Button'
 import { deepOrange, orange } from '@mui/material/colors';
 import { MDBCard, MDBCardHeader, MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn } from 'mdb-react-ui-kit';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import User from './user';
 
 export default function UserCard(props) {
   // [sid, firstName, lastName, shortName, voicePath] = props;
@@ -19,7 +21,14 @@ export default function UserCard(props) {
                 <br />
                 <MDBCardText className='mb-0'>SID : {props.sid}</MDBCardText>
                 <MDBCardText>Short name : {props.shortName}</MDBCardText>
-                <Button className='mb-2' variant="danger" href='#'>View Profile</Button>
+                <Button className='mb-2' variant="danger" href='/user'>View Profile</Button>
+
+          
+                {/* <Routes>
+                    <Route exact path='/user' element={<User />} />
+                </Routes> */}
+
+
             </div>
         </div>
       </MDBCardBody>
