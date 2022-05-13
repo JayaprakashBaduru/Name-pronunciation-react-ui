@@ -12,16 +12,17 @@ function SearchUser({ details }) {
     person => {
       return (
         person
-        .name
+        .firstName
         .toLowerCase()
         .includes(searchField.toLowerCase()) ||
         person
-        .email
+        .sid
         .toLowerCase()
         .includes(searchField.toLowerCase())
       );
     }
   );
+  
 
   const handleChange = e => {
     setSearchField(e.target.value);

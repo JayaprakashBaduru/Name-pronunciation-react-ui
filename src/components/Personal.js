@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import AudioPlay from './AudioPlay';
 import Recorder from './VoicerRecorder';
+import { Audiorec } from './audiorec';
 
 
 function Personal(props) {
@@ -41,6 +42,7 @@ function Personal(props) {
         <Modal.Body>
           Please record your name :
           <Recorder />
+          {/* <Audiorec /> */}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

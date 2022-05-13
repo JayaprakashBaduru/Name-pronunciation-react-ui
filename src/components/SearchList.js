@@ -7,7 +7,7 @@ function SearchList({ filteredPersons }) {
   // const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [usersPerPage, setusersPerPage] = useState(5);
+  const [usersPerPage, setusersPerPage] = useState(7);
 
   const users = filteredPersons
 
@@ -21,7 +21,7 @@ function SearchList({ filteredPersons }) {
 
   const filtered = filteredPersons.map(user =>  
     <ul className='list-group mb-4'>  
-      <UserCard name={user.name} email={user.email} pref_name={user.username}/>  
+      <UserCard sid={user.sid} firstName={user.firstName} lastName={user.lastName} shortName={user.shortName} voicePath={user.voicePath}/>
     </ul>
   ); 
 

@@ -12,7 +12,6 @@ function App2() {
       <Navigation />
       <br class="my-2"></br>
       <UserList />
-      {/* <GetAudio /> */}
     </div>
   );
 }

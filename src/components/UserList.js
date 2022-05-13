@@ -17,8 +17,9 @@ const UserList = () => {
   useEffect(() => {
     const fetchUsers = async () => {
         setLoading(true);
-        const res = await axios.get('https://jsonplaceholder.typicode.com/users');
+        const res = await axios.get('http://192.168.0.100:8081//search/profiles');
         setUsers(res.data);
+        console.log(res.data);
         setLoading(false);
     }
 
@@ -39,12 +40,12 @@ const UserList = () => {
   return (
     <div className='container mt-5'>
       <SearchUser details={users} />
-      {/* <Users users={currentUsers} loading={loading} />
-      <Pagination
+      {/* <Users users={currentUsers} loading={loading} /> */}
+      {/* <Pagination
         usersPerPage={usersPerPage}
         totalUsers={users.length}
         paginate={paginate}
-      /> */}
+      />  */}
     </div>
   );
   
