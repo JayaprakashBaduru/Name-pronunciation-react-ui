@@ -8,6 +8,8 @@ import Button from 'react-bootstrap/Button'
 import Avatar from '@mui/material/Avatar';
 import { deepOrange, deepPurple, grey} from '@mui/material/colors';
 import '../css/Navbar.css';
+import SearchUser from './SearchUser'
+
 // {<Avatar sx={{ bgcolor: grey[500] }}>A</Avatar>}
 
 function Navigation() {
@@ -20,16 +22,6 @@ function Navigation() {
                 <Nav className="me-auto my-2 my-lg-0"
                     style={{ maxHeight: '100px' }}
                     navbarScroll></Nav>
-    
-                <Form className="d-flex">
-                    <FormControl
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                    />
-                    <Button variant="secondary" className="text-light">Search</Button>
-                </Form>
                 <Nav>
                 <NavDropdown title="Profile" id="navbarScrollingDropdown">
                     <NavDropdown.Item href="#action3">View Profile</NavDropdown.Item>

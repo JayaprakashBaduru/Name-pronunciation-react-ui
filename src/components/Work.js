@@ -9,7 +9,7 @@ function Work(props) {
                         <h6 class="mb-0">Full Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                        <input type="text" class="form-control" value={props.name} />
+                        <input type="text" class="form-control" value={props.first_name + ' ' + props.last_name} />
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -42,12 +42,6 @@ function Work(props) {
                     </div>
                     <div class="col-sm-9 text-secondary">
                         <input type="text" class="form-control" value={props.address} />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-9 text-secondary">
-                        <input type="button" class="btn btn-primary px-4" value="Save Changes" />
                     </div>
                 </div>
             </div>

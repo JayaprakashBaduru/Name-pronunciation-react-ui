@@ -23,9 +23,9 @@ function Personal(props) {
   return (
     <div class="d-flex flex-column align-items-center text-center">
       {/* <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 mt-2 bg-primary" width="170" /> */}
-      <Avatar sx={{ bgcolor: orange[500], width:170, height:170, fontSize:60, marginTop:3 }}>{props.name[0]}</Avatar>
+      <Avatar sx={{ bgcolor: orange[500], width:170, height:170, fontSize:60, marginTop:3 }}>{props.first_name[0]}{props.last_name[0]}</Avatar>
       <div class="mt-3">
-        <h4>{props.name}</h4>
+        <h4>{props.first_name} {props.last_name}</h4>
         <p class="text-secondary mb-1">Preferred name : {props.preferred_name}</p>
         <hr />
         <p class="text-bold font-size-sm"> Name pronunciation : </p>
@@ -59,7 +59,7 @@ function Personal(props) {
         <Modal.Body>
         <audio
             controls
-            src='./audio.mp3'>
+            src='https://github.com/awamay/Name-pronunciation-react-ui/blob/develop/src/Audio_files/audio.mp3'>
                 Your browser does not support the
                 <code>audio</code> element.
         </audio>

@@ -11,7 +11,8 @@ import Skills from './Skills';
 // {/* <Avatar sx={{ bgcolor: deepOrange[500] }}>{name[0]}</Avatar> */}
 
 function User(props) {
-  const name = "John Doe"
+  const first_name = "John"
+  const last_name = "Doe"
   const preferred_name = "J"
   const email = "john@gmail.com"
   const manager = "Jane Doe"
@@ -30,7 +31,7 @@ function User(props) {
                 <div class="col-lg-4">
                     <div class="card">
                         <div class="card-body">
-                            <Personal name={name} preferred_name={preferred_name} audio={name_audio} />
+                            <Personal first_name={first_name} last_name={last_name} preferred_name={preferred_name} audio={name_audio} />
                             <hr class="my-4"></hr>
                             <Other manager={manager} location={location}/>
                         </div>
@@ -38,7 +39,7 @@ function User(props) {
                 </div>
                 
                 <div class="col-lg-8">
-                    <Work name={name} email={email} personal_contact={personal_contact} work_contact={work_contact} address={address}/>
+                    <Work first_name={first_name} last_name={last_name} email={email} personal_contact={personal_contact} work_contact={work_contact} address={address}/>
                     <div class="row">
                         <div class="col-sm-12">
                             <Skills skills={skills}/>
