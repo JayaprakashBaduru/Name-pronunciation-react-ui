@@ -59,8 +59,8 @@ class Browsefile extends Component {
     render() {
         return (
             <div className="App">
-                Upload an audio file :
                 <header>
+                <br />
                 <div onSubmit={this.onFormSubmit}>
                     <input type="file" name="file" onChange={(e) => this.onChange(e)}/>
                 </div>
