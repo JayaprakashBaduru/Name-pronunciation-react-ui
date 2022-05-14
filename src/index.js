@@ -31,11 +31,11 @@ root.render(
                     {/* <Nav.Link to="/app">App</Nav.Link>
                     <Nav.Link to="/app2">App2</Nav.Link> */}
                     {/* <li><Link class="link-dark m-2" to="/app">View Profile</Link></li> */}
-                    <li><Link class="link-light m-2" to="/app2">Search for employees</Link></li>
+                    <li><Link class="link-light m-2" to="/search">Search for employees</Link></li>
                 </Nav>
                 <Nav>
                 <NavDropdown title="Profile" id="navbarScrollingDropdown" className='p-10'>
-                    <NavDropdown.Item href="/app">View Profile</NavDropdown.Item>
+                    <NavDropdown.Item href="/profile">View Profile</NavDropdown.Item>
                     <NavDropdown.Item href="#action4">Sign Out</NavDropdown.Item>
                 </NavDropdown>
                 </Nav>
@@ -50,8 +50,8 @@ root.render(
         </ul>
       </nav> */}
       <Routes>
-        <Route path="/app" exact element={<App />} />
-        <Route path="/app2" exact element={<App2 />} />
+        <Route path="/profile" exact element={<App />} />
+        <Route path="/search" exact element={<App2 />} />
         <Route path="/user/:firstName" exact component={<UserPlain />}></Route>
       </Routes>
       
