@@ -1,8 +1,4 @@
-import logo from '../logo.svg';
 import '../css/user.css';
-import Avatar from '@mui/material/Avatar';
-import { deepOrange, deepPurple } from '@mui/material/colors';
-import { hover } from '@testing-library/user-event/dist/hover';
 import Personal from './Personal';
 import Other from './Other';
 import Work from './Work';
@@ -21,7 +17,8 @@ function User(props) {
   const work_contact = 23456677
   const address = "Bangalore, India"
   const skills = ['Web Design', 'Java microservicess', 'Python']
-  const name_audio = {}
+  const name_audio = "https://checkops.azurewebsites.net/download/audio?q=L2hvbWUvc2l0ZS93d3dyb290L2E3MTYyMDAtZGVmLWZpbGUud2F2"
+  const phonetic = "unclwde"
 
 
   return (
@@ -39,7 +36,7 @@ function User(props) {
                 <div class="col-lg-4">
                     <div class="card">
                         <div class="card-body">
-                            <Personal first_name={first_name} last_name={last_name} preferred_name={preferred_name} audio={name_audio} />
+                            <Personal first_name={first_name} last_name={last_name} preferred_name={preferred_name} audio={name_audio} phonetic={phonetic}/>
                             <hr class="my-4"></hr>
                             <Other manager={manager} location={location}/>
                         </div>

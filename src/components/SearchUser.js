@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { MDBCol, MDBIcon } from "mdbreact";
-import Scroll from './Scroll';
 import '../css/searchbar.css';
 import SearchList from './SearchList';
 

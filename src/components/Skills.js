@@ -1,5 +1,3 @@
-
-
 function Skills(props) {
     const skills = props.skills
     return (

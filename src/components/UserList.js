@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../css/App.css';
 import axios from 'axios';
-import User from '../components/user';
-import UserCard from './UserCard';
-import Navigation from '../components/Navbar';
-import Users from './Users';
 import Pagination from './Pagination';
 import SearchUser from './SearchUser';
 
@@ -17,7 +13,7 @@ const UserList = () => {
   useEffect(() => {
     const fetchUsers = async () => {
         setLoading(true);
-        const res = await axios.get('http://192.168.0.100:8081//search/profiles');
+        const res = await axios.get('https://checkops.azurewebsites.net/search/profiles');
         setUsers(res.data);
         console.log(res.data);
         setLoading(false);

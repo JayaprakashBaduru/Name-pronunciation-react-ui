@@ -1,16 +1,14 @@
 import Avatar from '@mui/material/Avatar';
+import '../css/personal.css';
 import { deepOrange, orange } from '@mui/material/colors';
 import VolumeUpRoundedIcon from '@mui/icons-material/VolumeUpRounded';
 import React, { useState } from "react";
-import { Modal, Button } from "react-bootstrap";
-import AudioPlay from './AudioPlay';
+import { Modal, Button, DropdownButton, Dropdown } from "react-bootstrap";
 import Recorder from './VoicerRecorder';
 import Browsefile from './BrowseAudio';
 
 
 function Personal(props) {
-  let audio = new Audio("../Audio_files/audio.mp3")
-
   const [showModal, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -21,6 +19,11 @@ function Personal(props) {
   const handleClose2 = () => setShow2(false);
   const handleShow2 = () => setShow2(true);
 
+  const [showModal3, setShow3] = useState(false);
+
+  const handleClose3 = () => setShow3(false);
+  const handleShow3 = () => setShow3(true);
+
 
   return (
     <div class="d-flex flex-column align-items-center text-center">
@@ -28,12 +31,18 @@ function Personal(props) {
       <Avatar sx={{ bgcolor: orange[500], width:170, height:170, fontSize:60, marginTop:3 }}>{props.first_name[0]}{props.last_name[0]}</Avatar>
       <div class="mt-3">
         <h4>{props.first_name} {props.last_name}</h4>
+        <p class="text-secondary mb-1">SID : {props.sid}</p>
         <p class="text-secondary mb-1">Preferred name : {props.preferred_name}</p>
         <hr />
         <p class="text-bold font-size-sm"> Name pronunciation : </p>
-        
-        <button class="btn btn-primary m-2" onClick={handleShow2}>Play <VolumeUpRoundedIcon /></button> 
-        <button class="btn btn-outline-primary m-2" onClick={handleShow}>Edit</button>
+        <div className='audio_btns'>
+          <button class="btn btn-primary m-2" onClick={handleShow2}>Play <VolumeUpRoundedIcon /></button> 
+          {/* <button class="btn btn-outline-primary m-2" onClick={handleShow}>Edit</button> */}
+          <DropdownButton id="dropdown-basic-button" title="Edit">
+            <Dropdown.Item onClick={handleShow}>Record audio</Dropdown.Item>
+            <Dropdown.Item onClick={handleShow3}>Upload audio file</Dropdown.Item>
+          </DropdownButton>
+        </div> 
       </div>
 
       <Modal show={showModal} onHide={handleClose}>
@@ -42,19 +51,10 @@ function Personal(props) {
         </Modal.Header>
         <Modal.Body>
           Please record your name :
-          <Recorder />
-        </Modal.Body>
-        <Modal.Body>
-          Upload an audio file :
-          <Browsefile />
+          <Recorder sid = {props.sid}/>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
+          <div></div>
         </Modal.Footer>
       </Modal>
 
@@ -69,15 +69,28 @@ function Personal(props) {
                 Your browser does not support the
                 <code>audio</code> element.
         </audio> */}
-        <audio src='https://checkops.azurewebsites.net/download/audio?q=L2hvbWUvc2l0ZS93d3dyb290L2E3MTYyMDAtZGVmLWZpbGUud2F2' controls="controls" />
-        {/* <audio className="audio-element">
-          <source src="https://assets.coderrocketfuel.com/pomodoro-times-up.mp3"></source>
-        </audio> */}
+        <audio src={props.audio} controls="controls" />
+        <hr />
+        <div>Name phonetics : {props.phonetic}</div>
+        {/* <audio src='https://checkops.azurewebsites.net/download/audio?q=L2hvbWUvc2l0ZS93d3dyb290L2E3MTYyMDAtZGVmLWZpbGUud2F2' controls="controls" /> */}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose2}>
             Close
           </Button>
+        </Modal.Footer>
+      </Modal>
+
+      <Modal show={showModal3} onHide={handleClose3}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit name pronunication : </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Upload an audio file :
+          <Browsefile sid = {props.sid}/>
+        </Modal.Body>
+        <Modal.Footer>
+          <div></div>
         </Modal.Footer>
       </Modal>
     </div>

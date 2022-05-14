@@ -10,7 +10,7 @@ const Users = ({ users, loading }) => {
     <div>
         <ul className='list-group mb-4'>
           {users.map(user => (
-              <UserCard sid={user.sid} firstName={user.firstName} lastName={user.lastName} shortName={user.shortName} voicePath={user.voicePath}/>
+              <UserCard sid={user.sid} firstName={user.firstName} lastName={user.lastName} shortName={user.shortName} voicePath={user.voicePath} key={user.sid}/>
           ))}
         </ul>
     </div>

@@ -1,17 +1,16 @@
 import '../css/App.css';
 import User from '../components/user';
 import UserCard from '../components/UserCard';
-import Navigation from '../components/Navbar';
-import { BrowserRouter, Switch, Routes, Route, Link } from 'react-router-dom';
+import UserPlain from '../components/UserPlain';
 
 
 function App() {
   return (
     <div>
-      <Navigation />
+        {/* <Navigation /> */}
         <br class="my-4"></br>
         {/* <User /> */}
-        <User />
+        <UserPlain />
     </div>
   );
 }

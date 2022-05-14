@@ -1,5 +1,3 @@
-import { propTypes } from "react-bootstrap/esm/Image";
-
 function Work(props) {
     return (
         <div class="card">

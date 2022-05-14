@@ -2,15 +2,18 @@ import React from 'react';
 import '../css/Recorder.css';
 import Button from 'react-bootstrap/Button'
 import MicRecorder from 'mic-recorder-to-mp3';
-import Browsefile from './BrowseAudio';
 import axios from "axios";
 
 
 const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 
 class Recorder extends React.Component {
+
   constructor(props){
     super(props);
+    const sid = props.sid;
+    console.log(sid);
+
     this.state = {
       isRecording: false,
       blobURL: '',
@@ -49,6 +52,7 @@ class Recorder extends React.Component {
 
   sendAudio = () => {
     let data = new FormData();
+    console.log('test:',this.props.sid);
 
     if (this.state.audioBlob != ''){
         data.append('File', this.state.audioBlob);
@@ -56,9 +60,13 @@ class Recorder extends React.Component {
         const config = {
             headers: {'content-type': 'multipart/form-data', 'Accept': 'application/json' }
         }
-        axios.put('http://192.168.0.100:8081/speech/update?sid=a716278', data, config)
-        .then(console.log('Success !'))
-        .then(this.setState({success_upload_message: "Audio uploaded!"}));
+        axios.put('https://checkops.azurewebsites.net/speech/update?sid='+this.props.sid, data, config)
+        .then((response) => {
+            console.log(response.status);
+            if(response.status==201) this.setState({success_upload_message: "Audio uploaded!"});
+        })
+        // .then(console.log('Success !'))
+        // .then(this.setState({success_upload_message: "Audio uploaded!"}));
 
     }
     else{
@@ -86,7 +94,7 @@ class Recorder extends React.Component {
       <div className="App">
         <header>
           <div>
-            <Button className='m-2' variant="primary" onClick={this.start} disabled={this.state.isRecording}>Record</Button>
+            <Button className='m-2' variant="success" onClick={this.start} disabled={this.state.isRecording}>Record</Button>
             <Button className='m-2' variant="danger" onClick={this.stop} disabled={!this.state.isRecording}>Stop</Button>
           </div>
           <br />
@@ -97,7 +105,10 @@ class Recorder extends React.Component {
                 <h6 className="fail_message_color">{this.state.empty_file_message}</h6>
                 <h6 className="success_message_color">{this.state.success_upload_message}</h6>
             </div>
-            <button onClick={this.sendAudio} type="button">Submit</button>
+            {/* <button onClick={this.sendAudio} type="button">Submit</button> */}
+            <Button variant="primary" className="m-2" onClick={this.sendAudio}>
+              Save audio
+            </Button>
           </div>
           
         </header>

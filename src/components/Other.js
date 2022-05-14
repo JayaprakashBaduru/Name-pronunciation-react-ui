@@ -1,5 +1,3 @@
-
-
 function Other(props) {
 
     return (
