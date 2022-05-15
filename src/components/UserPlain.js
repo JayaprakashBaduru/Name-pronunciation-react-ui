@@ -10,8 +10,8 @@ import { useParams } from 'react-router-dom';
 // {/* <Avatar sx={{ bgcolor: deepOrange[500] }}>{name[0]}</Avatar> */}
 
 function UserPlain() {
-//   const { sid } = useParams();
-  const sid = "a716200";
+  const { sid } = useParams();
+//   const sid = "Abdullah.Khan@gmail.com";
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");

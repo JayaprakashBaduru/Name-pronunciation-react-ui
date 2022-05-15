@@ -13,6 +13,8 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Routes, Route, Link } from 'react-router-dom';
 import Navigation from './components/Navbar';
 import UserPlain from './components/UserPlain';
+import Login from './components/Login';
+
 
 
 
@@ -51,8 +53,9 @@ root.render(
       </nav> */}
       <Routes>
         <Route path="/profile" exact element={<App />} />
+        <Route path="/login" exact element={<Login />} />
         <Route path="/search" exact element={<App2 />} />
-        <Route path="/user/:firstName" exact component={<UserPlain />}></Route>
+        <Route path="/user/:sid" exact element={<UserPlain />}></Route>
       </Routes>
       
       {/* <App2 /> */}

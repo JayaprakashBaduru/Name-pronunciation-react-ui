@@ -21,7 +21,7 @@ export default function UserCard(props) {
                 <br />
                 <MDBCardText className='mb-0'>SID : {props.sid}</MDBCardText>
                 <MDBCardText>Short name : {props.shortName}</MDBCardText>
-                <Button className='mb-2' variant="danger" key={`${firstName}`} href={`/user/${firstName}`}>View Profile</Button>
+                <Button className='mb-2' variant="danger" key={`${firstName}`} href={`/user/${sid}`}>View Profile</Button>
 
           
                 {/* <Routes>
