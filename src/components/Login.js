@@ -31,7 +31,6 @@ const theme = createTheme();
 
 export default function Login() {
     const [sid, setSid] = useState("");
-    const [token, setToken] = useState();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -42,6 +41,10 @@ export default function Login() {
         password: data.get('password'),
         });
     };
+
+    const onChange = e => {
+        setSid(e.target.value);
+    }
 
     return (
         <ThemeProvider theme={theme}>
@@ -61,7 +64,7 @@ export default function Login() {
             <Typography component="h1" variant="h5">
                 Sign in
             </Typography>
-            <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+            <Box component="form" noValidate sx={{ mt: 1 }}>
                 <TextField
                 margin="normal"
                 required
@@ -70,6 +73,7 @@ export default function Login() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={onChange}
                 autoFocus
                 />
                 <TextField
