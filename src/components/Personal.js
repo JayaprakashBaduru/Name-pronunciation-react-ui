@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import { Modal, Button, DropdownButton, Dropdown } from "react-bootstrap";
 import Recorder from './VoicerRecorder';
 import Browsefile from './BrowseAudio';
+import Optout from './Optout';
 
 
 function Personal(props) {
@@ -24,6 +25,11 @@ function Personal(props) {
   const handleClose3 = () => setShow3(false);
   const handleShow3 = () => setShow3(true);
 
+  const [showModal4, setShow4] = useState(false);
+
+  const handleClose4 = () => setShow4(false);
+  const handleShow4 = () => setShow4(true);
+
 
   return (
     <div class="d-flex flex-column align-items-center text-center">
@@ -41,13 +47,14 @@ function Personal(props) {
           <DropdownButton id="dropdown-basic-button" title="Edit">
             <Dropdown.Item onClick={handleShow}>Record audio</Dropdown.Item>
             <Dropdown.Item onClick={handleShow3}>Upload audio file</Dropdown.Item>
+            <Dropdown.Item disabled={!props.isCustomVoice} onClick={handleShow4}>Opt out of custom audio</Dropdown.Item>
           </DropdownButton>
         </div> 
       </div>
 
       <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit name pronunication : </Modal.Title>
+          <Modal.Title>Edit name pronunciation : </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           Please record your name :
@@ -83,7 +90,7 @@ function Personal(props) {
 
       <Modal show={showModal3} onHide={handleClose3}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit name pronunication : </Modal.Title>
+          <Modal.Title>Edit name pronunciation : </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           Upload an audio file :
@@ -93,6 +100,20 @@ function Personal(props) {
           <div></div>
         </Modal.Footer>
       </Modal>
+
+      <Modal show={showModal4} onHide={handleClose4}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit name pronuncication : </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Opt of of custom voice option ?
+          <Optout sid = {props.sid}/>
+        </Modal.Body>
+        <Modal.Footer>
+          <div></div>
+        </Modal.Footer>
+      </Modal>
+
     </div>
   );
 }

@@ -63,8 +63,24 @@ class Recorder extends React.Component {
         axios.put('https://checkops.azurewebsites.net/speech/update?sid='+this.props.sid, data, config)
         .then((response) => {
             console.log(response.status);
-            if(response.status==201) this.setState({success_upload_message: "Audio uploaded!"});
+            if(response.status==201) 
+                this.setState({success_upload_message: "Audio uploaded!"});
         })
+        .catch(function (error) {
+            if (error.response) {
+              console.log(error.response.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+              this.setState({success_upload_message: "Audio upload failed. Please try again."});
+            }
+            else if (error.request) {
+              console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log('Error', error.message);
+            }
+            console.log(error.config);
+        });
         // .then(console.log('Success !'))
         // .then(this.setState({success_upload_message: "Audio uploaded!"}));
 

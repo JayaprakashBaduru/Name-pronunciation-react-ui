@@ -11,7 +11,7 @@ import { useParams } from 'react-router-dom';
 
 function UserPlain() {
 //   const { sid } = useParams();
-  const sid = "sujit@gmail.com";
+  const sid = "a716200";
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -30,6 +30,7 @@ function UserPlain() {
   const work_contact = "234-100-340";
   const address = "Bangalore, India";
   const skills = ["Web development", "Microservices", "Python", "Java"];
+  var isCustomVoice = false;
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -51,7 +52,8 @@ function UserPlain() {
     audio_path = voicePath
   }
   else{
-    audio_path = custom_voice_path
+    audio_path = custom_voice_path;
+    isCustomVoice =true;
   }
 
   return (
@@ -69,7 +71,7 @@ function UserPlain() {
                 <div class="col-lg-4">
                     <div class="card">
                         <div class="card-body">
-                            <Personal sid = {sid} first_name={firstName} last_name={lastName} preferred_name={shortName} audio={audio_path} phonetic={phonetic}/>
+                            <Personal sid = {sid} first_name={firstName} last_name={lastName} preferred_name={shortName} audio={audio_path} isCustomVoice={isCustomVoice} phonetic={phonetic}/>
                             <hr class="my-4"></hr>
                             <Other manager={manager} location={location}/>
                         </div>
