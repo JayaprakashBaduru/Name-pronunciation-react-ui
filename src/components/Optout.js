@@ -14,7 +14,8 @@ class Optout extends Component {
             audio: {},
             blobURL: '',
             empty_file_message: '',
-            success_upload_message: ''
+            success_upload_message: '',
+            fail_upload_message: ''
         }
     }
 
@@ -40,7 +41,7 @@ class Optout extends Component {
                 console.log(error.response.data);
                 console.log(error.response.status);
                 console.log(error.response.headers);
-                this.setState({success_upload_message: "Opt-out failed. Please try again."});
+                this.setState({fail_upload_message: "Opt-out failed. Please try again."});
             }
             else if (error.request) {
                 console.log(error.request);
@@ -64,7 +65,7 @@ class Optout extends Component {
                 <br />
                 <div>
                     <div>
-                        <h6 className="fail_message_color">{this.state.empty_file_message}</h6>
+                        <h6 className="fail_message_color">{this.state.fail_upload_message}</h6>
                         <h6 className="success_message_color">{this.state.success_upload_message}</h6>
                     </div>
                     {/* <button onClick={this.sendAudio} type="button">Submit</button> */}

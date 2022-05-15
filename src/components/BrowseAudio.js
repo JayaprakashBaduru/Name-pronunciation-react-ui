@@ -14,7 +14,8 @@ class Browsefile extends Component {
             audio: {},
             blobURL: '',
             empty_file_message: '',
-            success_upload_message: ''
+            success_upload_message: '',
+            fail_upload_message: ''
         }
     }
 
@@ -29,7 +30,9 @@ class Browsefile extends Component {
         this.setState({empty_file_message: ""}, () => {
             console.log ('empty file message reset')} );
         this.setState({success_upload_message: ""}, () => {
-            console.log ('empty file message reset')} );
+            console.log ('success')} );
+        this.setState({fail_upload_message: ""}, () => {
+            console.log ('fail')} );
 
     }
 
@@ -52,9 +55,10 @@ class Browsefile extends Component {
             .catch(function (error) {
                 if (error.response) {
                   console.log(error.response.data);
+                  console.log(error.response.data.errors);
                   console.log(error.response.status);
                   console.log(error.response.headers);
-                  this.setState({success_upload_message: "Audio upload failed. Please try again."});
+                  this.setState({fail_upload_message: "Audio upload failed. Please try again."});
                 }
                 else if (error.request) {
                     console.log(error.request);
@@ -81,15 +85,18 @@ class Browsefile extends Component {
             <div className="App">
                 <header>
                 <br />
+                <br />
                 <div onSubmit={this.onFormSubmit}>
                     <input type="file" name="file" onChange={(e) => this.onChange(e)}/>
                 </div>
                 <br />
                     <audio src={this.state.blobURL} controls="controls" />
+                <br />
                 <div>
                     <div>
                         <h6 className="fail_message_color">{this.state.empty_file_message}</h6>
                         <h6 className="success_message_color">{this.state.success_upload_message}</h6>
+                        <h6 className="fail_message_color">{this.state.fail_upload_message}</h6>
                     </div>
                     {/* <button onClick={this.sendAudio} type="button">Submit</button> */}
                     <Button variant="primary" className="m-2" onClick={this.sendAudio}>

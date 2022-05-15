@@ -41,11 +41,11 @@ function Personal(props) {
   return (
     <div class="d-flex flex-column align-items-center text-center">
       {/* <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 mt-2 bg-primary" width="170" /> */}
-      <Avatar sx={{ bgcolor: orange[500], width:170, height:170, fontSize:60, marginTop:3 }}>{props.first_name[0]}{props.last_name[0]}</Avatar>
+      <Avatar sx={{ bgcolor: orange[500], width:150, height:150, fontSize:60, marginTop:3 }}>{props.first_name[0]}{props.last_name[0]}</Avatar>
       <div class="mt-3">
         <h4>{props.first_name} {props.last_name}</h4>
         <p class="text-secondary mb-1">SID : {props.sid}</p>
-        <p class="text-secondary mb-1">Preferred name : {props.preferred_name}</p>
+        <p class="text-secondary mb-1">Preferred name : {props.preferred_name} (Phonetics: {props.phonetic})</p>
         <hr />
         <p class="text-bold font-size-sm"> Name pronunciation : </p>
         <div className='audio_btns'>
@@ -69,8 +69,8 @@ function Personal(props) {
           <br /> <br />
           {/* Please record your name : 
           <Recorder sid = {props.sid}/> */}
-          <div class="main-body">
-            <div class="row">
+          <div class="main-body center">
+            <div class="row width center">
               <div class="col-lg-5">
                   <div class="card">
                       <div class="card-body">
@@ -79,8 +79,8 @@ function Personal(props) {
                       </div>
                   </div>
               </div>
-              <div class="col-lg-2 center">
-                OR
+              <div class="col-lg-1 center">
+                <b><h5>OR</h5></b>
               </div>
               <div class="col-lg-5">
                   <div class="card">
@@ -110,8 +110,8 @@ function Personal(props) {
                 <code>audio</code> element.
         </audio> */}
         <audio src={props.audio} controls="controls" />
-        <hr />
-        <div>Name phonetics : {props.phonetic}</div>
+        {/* <hr /> */}
+        {/* <div>Name phonetics : {props.phonetic}</div> */}
         {/* <audio src='https://checkops.azurewebsites.net/download/audio?q=L2hvbWUvc2l0ZS93d3dyb290L2E3MTYyMDAtZGVmLWZpbGUud2F2' controls="controls" /> */}
         </Modal.Body>
         <Modal.Footer>

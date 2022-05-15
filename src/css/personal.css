@@ -9,3 +9,7 @@
 .center-body {
     justify-content: center;
 }
+
+.width{
+    width: 100%;
+}

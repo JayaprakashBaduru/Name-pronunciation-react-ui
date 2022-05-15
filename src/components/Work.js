@@ -12,6 +12,7 @@ function Work(props) {
 
     const [prefName, setPrefName] = useState(shortName);
     const [successMessage, setSuccessMessage] = useState("");
+    const [failMessage, setFailMessage] = useState("");
 
     const onChange = e => {
         setPrefName(e.target.value);
@@ -53,7 +54,7 @@ function Work(props) {
               console.log(error.response.data);
               console.log(error.response.status);
               console.log(error.response.headers);
-              this.setState({success_upload_message: "Audio upload failed. Please try again."});
+              setFailMessage("Preferred name update failed!");
             }
             else if (error.request) {
                 console.log(error.request);
@@ -122,6 +123,7 @@ function Work(props) {
                     </div>
                     <div>
                         <h6 className="success_message_color">{successMessage}</h6>
+                        <h6 className="fail_message_color">{failMessage}</h6>
                     </div>
                 </div>
             </div>
