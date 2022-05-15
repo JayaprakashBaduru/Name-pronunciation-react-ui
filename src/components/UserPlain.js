@@ -25,7 +25,6 @@ function UserPlain() {
   //dummy data
   const manager = "Jane Doe";
   const location = "Bangalore, India";
-  const email = firstName+"@example.com";
   const personal_contact = "100-233-234";
   const work_contact = "234-100-340";
   const address = "Bangalore, India";
@@ -79,7 +78,7 @@ function UserPlain() {
                 </div>
                 
                 <div class="col-lg-8">
-                    <Work first_name={firstName} last_name={lastName} email={email} personal_contact={personal_contact} work_contact={work_contact} address={address}/>
+                    <Work first_name={firstName} last_name={lastName} sid={sid} personal_contact={personal_contact} preferred_name={shortName} work_contact={work_contact} address={address}/>
                     <div class="row">
                         <div class="col-sm-12">
                             <Skills skills={skills}/>

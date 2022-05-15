@@ -10,10 +10,16 @@ import Optout from './Optout';
 
 
 function Personal(props) {
+  const [fullscreen, setFullscreen] = useState(true);
+
   const [showModal, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const handleShow = () => setShow(true);
+  function handleShow(breakpoint) {
+    setFullscreen(breakpoint);
+    setShow(true);
+  }
 
   const [showModal2, setShow2] = useState(false);
 
@@ -31,6 +37,7 @@ function Personal(props) {
   const handleShow4 = () => setShow4(true);
 
 
+
   return (
     <div class="d-flex flex-column align-items-center text-center">
       {/* <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 mt-2 bg-primary" width="170" /> */}
@@ -42,23 +49,49 @@ function Personal(props) {
         <hr />
         <p class="text-bold font-size-sm"> Name pronunciation : </p>
         <div className='audio_btns'>
-          <button class="btn btn-primary m-2" onClick={handleShow2}>Play <VolumeUpRoundedIcon /></button> 
-          {/* <button class="btn btn-outline-primary m-2" onClick={handleShow}>Edit</button> */}
-          <DropdownButton id="dropdown-basic-button" title="Edit">
-            <Dropdown.Item onClick={handleShow}>Record audio</Dropdown.Item>
-            <Dropdown.Item onClick={handleShow3}>Upload audio file</Dropdown.Item>
-            <Dropdown.Item disabled={!props.isCustomVoice} onClick={handleShow4}>Opt out of custom audio</Dropdown.Item>
-          </DropdownButton>
+          {/* <div class="row"> */}
+            <button className="btn btn-primary m-2" onClick={handleShow2}>Play <VolumeUpRoundedIcon /></button> 
+            {/* <button class="btn btn-outline-primary m-2" onClick={handleShow}>Edit</button> */}
+            <DropdownButton id="dropdown-basic-button" title="Edit">
+              <Dropdown.Item onClick={handleShow}>Upload custom audio</Dropdown.Item>
+              {/* <Dropdown.Item onClick={handleShow3}>Upload audio file</Dropdown.Item> */}
+              <Dropdown.Item disabled={!props.isCustomVoice} onClick={handleShow4}>Opt out of custom audio</Dropdown.Item>
+            </DropdownButton>
+          {/* </div> */}
         </div> 
       </div>
 
-      <Modal show={showModal} onHide={handleClose}>
+      <Modal show={showModal} onHide={handleClose} fullscreen={fullscreen}>
         <Modal.Header closeButton>
           <Modal.Title>Edit name pronunciation : </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Please record your name :
-          <Recorder sid = {props.sid}/>
+          <br /> <br />
+          {/* Please record your name : 
+          <Recorder sid = {props.sid}/> */}
+          <div class="main-body">
+            <div class="row">
+              <div class="col-lg-5">
+                  <div class="card">
+                      <div class="card-body">
+                        Please record your name :
+                        <Recorder sid = {props.sid}/>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-2 center">
+                OR
+              </div>
+              <div class="col-lg-5">
+                  <div class="card">
+                      <div class="card-body">
+                      Upload an existing audio file :
+                      <Browsefile sid = {props.sid}/>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
         </Modal.Body>
         <Modal.Footer>
           <div></div>
