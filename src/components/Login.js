@@ -13,6 +13,8 @@ import Typography from '@mui/material/Typography';
 import { useState } from "react";
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useDispatch } from 'react-redux'
+import { login } from "../features/userSlice"
 
 function Copyright(props) {
   return (
@@ -29,76 +31,45 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function Login() {
-    const [sid, setSid] = useState("");
+function Login() {
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        setSid(data.get('email'));
-        console.log({
-        email: data.get('email'),
-        password: data.get('password'),
-        });
-    };
+  const [user_sid, setuser_sid] = useState("");
+  const [password, setpassword] = useState("");
 
-    const onChange = e => {
-        setSid(e.target.value);
-    }
+  const dispatch = useDispatch();
 
-    return (
-        <ThemeProvider theme={theme}>
-        <Container component="main" maxWidth="xs">
-            <CssBaseline />
-            <Box
-            sx={{
-                marginTop: 8,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-            }}
-            >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
-                Sign in
-            </Typography>
-            <Box component="form" noValidate sx={{ mt: 1 }}>
-                <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                onChange={onChange}
-                autoFocus
-                />
-                <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                />
-                <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-                href={`/user/${sid}`}
-                >
-                Sign In
-                </Button>
-            </Box>
-            </Box>
-            <Copyright sx={{ mt: 8, mb: 4 }} />
-        </Container>
-        </ThemeProvider>
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(
+      login(
+        {
+          email: user_sid
+        }
+      ));
+
+  };
+
+
+  return (
+    <div className="login">
+      <form className='login-form' onSubmit={(e) => handleSubmit(e)}>
+        <h1> Login Here </h1>
+        <input
+          type="email"
+          placeholder="email"
+          value={user_sid}
+          onChange={(e) => setuser_sid(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setpassword(e.target.value)}
+        />
+        <button type='submit' className='submit__btn' >Login</button>
+      </form>
+    </div>
   );
 }
+
+export default Login;

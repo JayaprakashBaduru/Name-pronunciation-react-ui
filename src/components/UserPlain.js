@@ -6,11 +6,17 @@ import Other from './Other';
 import Work from './Work';
 import Skills from './Skills';
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../features/userSlice';
+import Login from '../components/Login';
 
 // {/* <Avatar sx={{ bgcolor: deepOrange[500] }}>{name[0]}</Avatar> */}
 
-function UserPlain() {
-  const { sid } = useParams();
+function UserPlain(props) {
+  const user = useSelector(selectUser);
+  const  sid  = user.email;
+  console.log(sid);
+  const [usersid, setUsersid] = useState(sid);
 //   const sid = "Abdullah.Khan@gmail.com";
 
   const [firstName, setFirstName] = useState("");
