@@ -51,7 +51,7 @@ function UserPlain(props) {
     }
 
     fetchUsers();
-  }, []);
+  }, [shortName, voicePath, custom_voice_path]);
 
   if (custom_voice_path == ""){
     audio_path = voicePath
