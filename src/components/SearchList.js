@@ -28,11 +28,11 @@ function SearchList({ filteredPersons }) {
   return (
     <div className='container mt-5'>
       <Users users={currentUsers} loading={loading} />
-      <Pagination
+      {/* <Pagination
         usersPerPage={usersPerPage}
         totalUsers={users.length}
         paginate={paginate}
-      />
+      /> */}
     </div>
     // filtered
   );
