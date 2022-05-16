@@ -14,7 +14,7 @@ function App() {
         {/* <Navigation /> */}
         <br class="my-4"></br>
       {/* <User /> */}
-      {user ? <UserPlain /> : <Login/>}
+      {user.email ? <UserPlain /> : <Login/>}
         {/* <UserPlain /> */}
     </div>
   );

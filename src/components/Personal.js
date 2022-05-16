@@ -44,7 +44,7 @@ function Personal(props) {
       <Avatar sx={{ bgcolor: orange[500], width:150, height:150, fontSize:60, marginTop:3 }}>{props.first_name[0]}{props.last_name[0]}</Avatar>
       <div class="mt-3">
         <h4>{props.first_name} {props.last_name}</h4>
-        <p class="text-secondary mb-1">SID : {props.sid}</p>
+        <p class="text-secondary mb-1">Username : {props.sid}</p>
         <p class="text-secondary mb-1">Preferred name : {props.preferred_name} (Phonetics: {props.phonetic})</p>
         <hr />
         <p class="text-bold font-size-sm"> Name pronunciation : </p>
@@ -53,7 +53,7 @@ function Personal(props) {
             <button className="btn btn-primary m-2" onClick={handleShow2}>Play <VolumeUpRoundedIcon /></button> 
             {/* <button class="btn btn-outline-primary m-2" onClick={handleShow}>Edit</button> */}
             <DropdownButton id="dropdown-basic-button" title="Edit">
-              <Dropdown.Item onClick={handleShow}>Upload custom audio</Dropdown.Item>
+              <Dropdown.Item onClick={handleShow}>Opt in for custom audio</Dropdown.Item>
               {/* <Dropdown.Item onClick={handleShow3}>Upload audio file</Dropdown.Item> */}
               <Dropdown.Item disabled={!props.isCustomVoice} onClick={handleShow4}>Opt out of custom audio</Dropdown.Item>
             </DropdownButton>
@@ -63,7 +63,7 @@ function Personal(props) {
 
       <Modal show={showModal} onHide={handleClose} fullscreen={fullscreen}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit name pronunciation : </Modal.Title>
+          <Modal.Title>Edit name pronunciation (for username : {props.sid}) : </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <br /> <br />

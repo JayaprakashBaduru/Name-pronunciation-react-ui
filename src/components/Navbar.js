@@ -26,7 +26,7 @@ function Navigation() {
     return (
         <Navbar className="red" expand="lg">
             <Container fluid>
-                <Navbar.Brand href="/profile" className="text-light">Check Ops</Navbar.Brand>
+                <Navbar.Brand href="/profile" className="text-light bold"><h2>Wells Fargo</h2></Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                 <Nav className="me-auto my-2 my-lg-0"
@@ -36,9 +36,13 @@ function Navigation() {
                     <Nav.Link to="/app2">App2</Nav.Link> */}
                     {/* <li><Link class="link-dark m-2" to="/app">View Profile</Link></li> */}
                     <li><Link className="link-light m-2" to="/search">Search for employees</Link></li>
-                </Nav>
-                <Nav>
-                <NavDropdown title="Profile" id="navbarScrollingDropdown" className='p-10 link-light'>
+                    </Nav>
+                    {/* <Nav className="me-auto my-2 my-lg-0 text-light">
+                        <h5>Username : {user.email}</h5>
+                    </Nav> */}
+                    <Nav>
+                        
+                        <NavDropdown className='p-10 link-light text-light bold' title={user.email} id="navbarScrollingDropdown" >
                             <NavDropdown.Item href="/profile">View Profile</NavDropdown.Item>
                     <NavDropdown.Item><button onClick={(e) => handleLogout(e)}>Logout</button></NavDropdown.Item>
                 </NavDropdown>
