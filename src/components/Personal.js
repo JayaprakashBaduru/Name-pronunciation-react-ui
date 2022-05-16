@@ -136,7 +136,7 @@ function Personal(props) {
 
       <Modal show={showModal4} onHide={handleClose4}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit name pronuncication : </Modal.Title>
+          <Modal.Title>Opt out : </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           Opt of of custom voice option ?
