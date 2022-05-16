@@ -6,6 +6,7 @@ import Other from './Other';
 import Work from './Work';
 import Skills from './Skills';
 import { useParams } from 'react-router-dom';
+import WorkPublic from './WorkPublic';
 
 // {/* <Avatar sx={{ bgcolor: deepOrange[500] }}>{name[0]}</Avatar> */}
 
@@ -79,7 +80,7 @@ function UserView() {
                     </div>
 
                     <div class="col-lg-8">
-                        <Work first_name={firstName} last_name={lastName} email={email} personal_contact={personal_contact} work_contact={work_contact} address={address} />
+                        <WorkPublic first_name={firstName} last_name={lastName} sid={sid} personal_contact={personal_contact} preferred_name={shortName} work_contact={work_contact} address={address}/>
                         <div class="row">
                             <div class="col-sm-12">
                                 <Skills skills={skills} />

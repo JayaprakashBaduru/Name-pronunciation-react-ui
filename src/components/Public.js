@@ -38,7 +38,7 @@ function Public(props) {
             <div class="mt-3">
                 <h4>{props.first_name} {props.last_name}</h4>
                 <p class="text-secondary mb-1">SID : {props.sid}</p>
-                <p class="text-secondary mb-1">Preferred name : {props.preferred_name}</p>
+                <p class="text-secondary mb-1">Preferred name : {props.preferred_name} (Phonetics: {props.phonetic})</p>
                 <hr />
                 <p class="text-bold font-size-sm"> Name pronunciation : </p>
                 <div className='audio_btns'>
@@ -77,8 +77,6 @@ function Public(props) {
                 <code>audio</code> element.
         </audio> */}
                     <audio src={props.audio} controls="controls" />
-                    <hr />
-                    <div>Name phonetics : {props.phonetic}</div>
                     {/* <audio src='https://checkops.azurewebsites.net/download/audio?q=L2hvbWUvc2l0ZS93d3dyb290L2E3MTYyMDAtZGVmLWZpbGUud2F2' controls="controls" /> */}
                 </Modal.Body>
                 <Modal.Footer>
